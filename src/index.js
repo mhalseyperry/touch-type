@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+import './index.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const keyMap = {
+  81: 'й',
+  87: 'ц',
+  69: 'у',
+  82: 'к',
+  84: 'е',
+  89: 'н',
+  85: 'г',
+  73: 'ш',
+  79: 'щ',
+  80: 'з',
+  219: 'х',
+  221: 'ъ',
+};
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(<App keyMap={keyMap} />, document.getElementById('root'));

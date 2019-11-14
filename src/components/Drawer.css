@@ -1,0 +1,13 @@
+.drawer {
+  background: green;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -15rem;
+  width: 15rem;
+  transition: left 0.2s ease-in;
+}
+
+.open {
+  left: 0;
+}
