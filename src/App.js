@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { useEventListener } from './useEventListener';
+import { useEventListener } from './hooks/useEventListener';
 import { Drawer } from './components/Drawer';
+import { KeymapPicker } from './components/KeymapPicker';
+import { useKeyboardLayouts } from './contexts/KeyboardLayoutContext';
 
 function getRandKey(keyMap) {
   const keys = Object.keys(keyMap);
@@ -11,20 +13,24 @@ function getRandKey(keyMap) {
 }
 
 function App(props) {
-  const [key, setKey] = useState(getRandKey(props.keyMap));
+  const { primaryKeymap, secondaryKeymap } = useKeyboardLayouts();
+  const [key, setKey] = useState(getRandKey(props.keyMapRUS));
   const [className, setClassName] = useState('');
+  const [input, setInput] = useState('');
 
   useEventListener(
     'keydown',
     e => {
       if (e.keyCode === key) {
         setClassName('correct');
-        setKey(getRandKey(props.keyMap));
+        setKey(getRandKey(primaryKeymap));
       } else {
         setClassName('incorrect');
       }
+      console.log(e.keyCode);
+      setInput(e.keyCode);
     },
-    [key, props.keyMap],
+    [key, primaryKeymap],
   );
 
   useEffect(() => {
@@ -37,12 +43,17 @@ function App(props) {
     return () => clearTimeout(timeout);
   }, [className]);
 
+  console.log(primaryKeymap, secondaryKeymap);
+
   return (
     <div className={`wrapper ${className}`}>
       <Drawer />
+      <KeymapPicker />
       <main>
         <div className="box">
-          <p id="letter">{props.keyMap[key]}</p>
+          <p id="letter">{primaryKeymap[key]}</p>
+          <p id="letter-small">({secondaryKeymap[key]})</p>
+          <p id="letter-small">{primaryKeymap[input]}</p>
         </div>
       </main>
     </div>

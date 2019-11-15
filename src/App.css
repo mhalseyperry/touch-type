@@ -8,8 +8,11 @@
 }
 
 .box p {
+  display: flex;
   font-size: 2000%;
   color: white;
+  justify-content: center;
+  flex-direction: column;
 }
 
 p {
@@ -22,4 +25,9 @@ p {
 
 .incorrect {
   background: red;
+}
+
+#letter-small {
+  text-align: center;
+  font-size: 500%;
 }
