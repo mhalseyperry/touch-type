@@ -1,7 +1,6 @@
 .wrapper {
   width: 100%;
   min-height: 100vh;
-  background: black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,7 +23,7 @@ p {
 }
 
 .incorrect {
-  background: red;
+  background: red !important;
 }
 
 #letter-small {

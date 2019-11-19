@@ -4,6 +4,7 @@ import { useEventListener } from './hooks/useEventListener';
 import { Drawer } from './components/Drawer';
 import { KeymapPicker } from './components/KeymapPicker';
 import { useKeyboardLayouts } from './contexts/KeyboardLayoutContext';
+import { useThemes } from './contexts/ThemeContext';
 
 function getRandKey(keyMap) {
   const keys = Object.keys(keyMap);
@@ -14,7 +15,10 @@ function getRandKey(keyMap) {
 
 function App(props) {
   const { primaryKeymap, secondaryKeymap } = useKeyboardLayouts();
-  const [key, setKey] = useState(getRandKey(props.keyMapRUS));
+  const { isLightTheme, dark, light } = useThemes();
+  const theme = isLightTheme ? light : dark;
+  console.log(theme);
+  const [key, setKey] = useState(getRandKey(primaryKeymap));
   const [className, setClassName] = useState('');
   const [input, setInput] = useState('');
 
@@ -27,7 +31,6 @@ function App(props) {
       } else {
         setClassName('incorrect');
       }
-      console.log(e.keyCode);
       setInput(e.keyCode);
     },
     [key, primaryKeymap],
@@ -43,10 +46,8 @@ function App(props) {
     return () => clearTimeout(timeout);
   }, [className]);
 
-  console.log(primaryKeymap, secondaryKeymap);
-
   return (
-    <div className={`wrapper ${className}`}>
+    <div className={`wrapper ${className}`} style={{ background: theme.bg }}>
       <Drawer />
       <KeymapPicker />
       <main>
