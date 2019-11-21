@@ -4,6 +4,7 @@ import { Drawer } from './components/Drawer';
 import { KeymapPicker } from './components/KeymapPicker';
 import { useThemes } from './contexts/ThemeContext';
 import { LetterMode } from './components/LetterMode';
+import { ThemePicker } from './components/ThemePicker';
 
 function App() {
   const { theme } = useThemes();
@@ -23,6 +24,7 @@ function App() {
     <div className={`wrapper ${className}`} style={{ background: theme.bg }}>
       <Drawer />
       <KeymapPicker />
+      <ThemePicker />
       <main>
         <LetterMode
           onSuccesfulGuess={() => setClassName('correct')}
