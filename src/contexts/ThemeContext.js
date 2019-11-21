@@ -7,19 +7,22 @@ export const useThemes = () => useContext(ThemeContext);
 export const ThemeContextProvider = ({ children }) => {
   const [isLightTheme, setIsLightTheme] = useState(false);
 
+  const light = {
+    text: '#555',
+    ui: '#ddd',
+    bg: '#eee',
+  };
+
+  const dark = {
+    text: '#ddd',
+    ui: '#333',
+    bg: '#555',
+  };
+
+  const theme = isLightTheme ? light : dark;
+
   const value = {
-    light: {
-      text: '#555',
-      ui: '#ddd',
-      bg: '#eee',
-    },
-
-    dark: {
-      text: '#ddd',
-      ui: '#333',
-      bg: '#555',
-    },
-
+    theme,
     isLightTheme,
     setIsLightTheme,
   };

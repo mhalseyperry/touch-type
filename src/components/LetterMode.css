@@ -1,11 +1,3 @@
-.wrapper {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .box p {
   display: flex;
   font-size: 2000%;
@@ -19,7 +11,7 @@ p {
 }
 
 .correct {
-  background: green !important;
+  background: green;
 }
 
 .incorrect {
