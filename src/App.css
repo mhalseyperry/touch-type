@@ -9,13 +9,8 @@
 .box p {
   display: flex;
   font-size: 2000%;
-  color: white;
   justify-content: center;
   flex-direction: column;
-}
-
-p {
-  color: white;
 }
 
 .correct {

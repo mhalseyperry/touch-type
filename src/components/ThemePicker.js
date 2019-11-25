@@ -1,8 +1,8 @@
 import React from 'react';
-import { useThemes } from '../contexts/ThemeContext';
+import { useThemeController } from '../contexts/ThemeContext';
 
 export const ThemePicker = () => {
-  const { isLightTheme, setIsLightTheme } = useThemes();
+  const { isLightTheme, setIsLightTheme } = useThemeController();
 
   return (
     <div>

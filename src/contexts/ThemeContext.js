@@ -1,8 +1,9 @@
 import React, { createContext, useContext, useState } from 'react';
+import { ThemeProvider } from 'theming';
 
-export const ThemeContext = createContext();
+export const ThemeControllerContext = createContext();
 
-export const useThemes = () => useContext(ThemeContext);
+export const useThemeController = () => useContext(ThemeControllerContext);
 
 export const ThemeContextProvider = ({ children }) => {
   const [isLightTheme, setIsLightTheme] = useState(false);
@@ -19,15 +20,16 @@ export const ThemeContextProvider = ({ children }) => {
     bg: '#555',
   };
 
-  const theme = isLightTheme ? light : dark;
-
   const value = {
-    theme,
     isLightTheme,
     setIsLightTheme,
   };
 
   return (
-    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+    <ThemeControllerContext.Provider value={value}>
+      <ThemeProvider theme={isLightTheme ? light : dark}>
+        {children}
+      </ThemeProvider>
+    </ThemeControllerContext.Provider>
   );
 };

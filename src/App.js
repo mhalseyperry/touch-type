@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { Drawer } from './components/Drawer';
 import { KeymapPicker } from './components/KeymapPicker';
-import { useThemes } from './contexts/ThemeContext';
 import { LetterMode } from './components/LetterMode';
 import { ThemePicker } from './components/ThemePicker';
+import { useTheme } from 'theming';
+import { useStyles } from './hooks/useStyles';
 
 function App() {
-  const { theme } = useThemes();
+  const { theme } = useTheme();
+  const classes = useStyles(theme);
+  console.log(classes);
   const [className, setClassName] = useState('');
 
   useEffect(() => {
@@ -21,7 +24,7 @@ function App() {
   }, [className]);
 
   return (
-    <div className={`wrapper ${className}`} style={{ background: theme.bg }}>
+    <div className={classes.wrapper}>
       <Drawer />
       <KeymapPicker />
       <ThemePicker />

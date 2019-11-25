@@ -4,6 +4,7 @@ import App from './App';
 import './index.css';
 import { KeyboardLayoutProvider } from './contexts/KeyboardLayoutContext';
 import { ThemeContextProvider } from './contexts/ThemeContext';
+import { ThemeProvider } from 'theming';
 
 ReactDOM.render(
   <ThemeContextProvider>

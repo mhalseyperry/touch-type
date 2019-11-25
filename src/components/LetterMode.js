@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './LetterMode.css';
 import { useEventListener } from '../hooks/useEventListener';
 import { useKeyboardLayouts } from '../contexts/KeyboardLayoutContext';
-import { useThemes } from '../contexts/ThemeContext';
+import { useTheme } from 'theming';
+import { useStyles } from '../hooks/useStyles';
 
 function getRandKey(keyMap) {
   const keys = Object.keys(keyMap);
@@ -13,7 +14,8 @@ function getRandKey(keyMap) {
 
 export const LetterMode = props => {
   const { primaryKeymap, secondaryKeymap } = useKeyboardLayouts();
-  const { theme } = useThemes();
+  const { theme } = useTheme();
+  const classes = useStyles(theme);
 
   const [key, setKey] = useState(getRandKey(primaryKeymap));
   const [input, setInput] = useState('');
@@ -34,13 +36,13 @@ export const LetterMode = props => {
 
   return (
     <div className="box">
-      <p id="letter" style={{ color: theme.text }}>
+      <p className={classes.text} id="letter">
         {primaryKeymap[key]}
       </p>
-      <p id="letter-small" style={{ color: theme.text }}>
+      <p className={classes.text} id="letter-small">
         ({secondaryKeymap[key]})
       </p>
-      <p id="letter-small" style={{ color: theme.text }}>
+      <p className={classes.text} id="letter-small">
         {primaryKeymap[input]}
       </p>
     </div>
