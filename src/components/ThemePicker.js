@@ -6,10 +6,12 @@ export const ThemePicker = () => {
 
   return (
     <div>
-      <select onChange={e => setIsLightTheme(e.target.value)}>
-        <option value={false}>Dark Mode</option>
-        <option value={true}>Light Mode</option>
-      </select>
+      <input
+        name="theme"
+        type="checkbox"
+        onChange={e => setIsLightTheme(!isLightTheme)}
+      ></input>
+      <label for="theme">Dark Mode/Light Mode</label>
     </div>
   );
 };
