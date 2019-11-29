@@ -4,27 +4,30 @@ export const ToggleButtonStyles = createUseStyles(theme => ({
   switch: {
     position: 'relative',
     outline: 'none',
-    width: '50px',
+    width: '60px',
     height: '30px',
     backgroundColor: theme.text,
-    border: `1px solid ${theme.text}`,
-    borderRadius: '50px',
-    padding: '2px',
-    transition: 'margin-left 100ms ease-in-out',
+    border: `4px solid ${theme.text}`,
+    borderRadius: '30px',
+    boxSizing: 'content-box',
+    margin: '5px',
   },
 
   switchOn: {
-    backgroundColor: 'blue',
+    backgroundColor: '#42A5F5',
+    border: '4px solid #42A5F5',
   },
 
   innerCircle: {
-    width: '25px',
-    height: '25px',
+    border: '5px',
+    width: '30px',
+    height: '30px',
     background: theme.bg,
     borderRadius: '50%',
+    transition: 'margin-left 200ms ease-in-out',
   },
 
   innerCircleOn: {
-    marginLeft: '19px',
+    marginLeft: '30px',
   },
 }));
