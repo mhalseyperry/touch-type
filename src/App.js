@@ -8,8 +8,7 @@ import { useTheme } from 'theming';
 import { useStyles } from './hooks/useStyles';
 
 function App() {
-  const { theme } = useTheme();
-  const classes = useStyles(theme);
+  const classes = useStyles();
   console.log(classes);
   const [className, setClassName] = useState('');
 

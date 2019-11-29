@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import './ToggleButton.css';
+import React from 'react';
+import { ToggleButtonStyles } from './ToggleButton.styles';
 
 export const ToggleButton = props => {
-  const { isOn, setIsOn } = useState(false);
+  const classes = ToggleButtonStyles();
 
   function toggle() {
     props.toggle(!props.on);
@@ -10,7 +10,17 @@ export const ToggleButton = props => {
 
   return (
     <div>
-      <button className="switch" onClick={toggle}></button>
+      <button
+        //prettier-ignore
+        className={`${classes.switch} ${props.on ? classes.switchOn : classes.switchOff}`}
+        onClick={toggle}
+      >
+        <div
+          className={`${classes.innerCircle} ${
+            props.on ? classes.innerCircleOn : classes.innerCircleOff
+          }`}
+        ></div>
+      </button>
     </div>
   );
 };

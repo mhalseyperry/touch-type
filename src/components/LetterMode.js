@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './LetterMode.css';
 import { useEventListener } from '../hooks/useEventListener';
 import { useKeyboardLayouts } from '../contexts/KeyboardLayoutContext';
-import { useTheme } from 'theming';
 import { useStyles } from '../hooks/useStyles';
 
 function getRandKey(keyMap) {
@@ -14,8 +13,7 @@ function getRandKey(keyMap) {
 
 export const LetterMode = props => {
   const { primaryKeymap, secondaryKeymap } = useKeyboardLayouts();
-  const { theme } = useTheme();
-  const classes = useStyles(theme);
+  const classes = useStyles();
 
   const [key, setKey] = useState(getRandKey(primaryKeymap));
   const [input, setInput] = useState('');
