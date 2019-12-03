@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
 import { Drawer } from './components/Drawer';
 import { KeymapPicker } from './components/KeymapPicker';
 import { LetterMode } from './components/LetterMode';
 import { ThemePicker } from './components/ThemePicker';
-import { useTheme } from 'theming';
-import { useStyles } from './hooks/useStyles';
+import { AppStyles } from './hooks/App.styles';
 
 function App() {
-  const classes = useStyles();
+  const classes = AppStyles();
   console.log(classes);
   const [className, setClassName] = useState('');
 

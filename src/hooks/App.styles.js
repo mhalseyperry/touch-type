@@ -1,6 +1,6 @@
 import { createUseStyles } from 'react-jss';
 
-export const useStyles = createUseStyles(theme => ({
+export const AppStyles = createUseStyles(theme => ({
   wrapper: {
     background: theme.bg,
     width: '100%',
@@ -8,9 +8,5 @@ export const useStyles = createUseStyles(theme => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-  },
-
-  text: {
-    color: theme.text,
   },
 }));
