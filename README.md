@@ -13,4 +13,4 @@ A website to practice touch typing in any language, built using React. The curre
 
 * Further language support
 
-*Various bug fixes
+* Various bug fixes
