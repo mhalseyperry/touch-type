@@ -1,17 +1,20 @@
 import { createUseStyles } from 'react-jss';
 
 export const LetterModeStyles = createUseStyles(theme => ({
-  text: {
-    color: theme.text,
+  box: {
     display: 'flex',
-    fontSize: '2000%',
     justifyContent: 'center',
     flexDirection: 'column',
+    textAlign: 'center',
+  },
+
+  text: {
+    color: theme.text,
+    fontSize: '2000%',
   },
 
   textSmall: {
     color: theme.text,
-    textAlign: 'center',
     fontSize: '500%',
   },
 }));

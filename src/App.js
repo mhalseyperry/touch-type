@@ -21,10 +21,11 @@ function App() {
 
   return (
     <div className={`${styles.wrapper} ${className ? styles[className] : ''}`}>
-      <Drawer />
-      <KeymapPicker />
-      <ThemePicker />
-      <main>
+      <header className={styles.header}>
+        <KeymapPicker />
+        <ThemePicker />
+      </header>
+      <main className={styles.main}>
         <LetterMode
           onSuccesfulGuess={() => setClassName('correct')}
           onIncorrectGuess={() => setClassName('incorrect')}

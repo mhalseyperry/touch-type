@@ -8,6 +8,21 @@ export const AppStyles = createUseStyles(theme => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    flexDirection: 'column',
+  },
+
+  header: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    width: '100%',
+  },
+
+  main: {
+    display: 'flex',
+    justifyContent: 'center',
+    width: '100%',
+    height: '100%',
   },
 
   correct: {

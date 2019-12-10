@@ -32,7 +32,7 @@ export const LetterMode = props => {
   );
 
   return (
-    <div className="box">
+    <div className={classes.box}>
       <p className={classes.text}>{primaryKeymap[key]}</p>
       <p className={classes.textSmall}>({secondaryKeymap[key]})</p>
       <p className={classes.textSmall}>{primaryKeymap[input]}</p>
