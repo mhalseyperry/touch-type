@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Drawer } from './components/Drawer';
-import { KeymapPicker } from './components/KeymapPicker';
 import { LetterMode } from './components/LetterMode';
 import { ThemePicker } from './components/ThemePicker';
 import { AppStyles } from './hooks/App.styles';
@@ -22,8 +21,7 @@ function App() {
   return (
     <div className={`${styles.wrapper} ${className ? styles[className] : ''}`}>
       <header className={styles.header}>
-        <KeymapPicker />
-        <ThemePicker />
+        <Drawer />
       </header>
       <main className={styles.main}>
         <LetterMode

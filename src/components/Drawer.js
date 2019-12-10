@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import './Drawer.css';
-import { isContext } from 'vm';
+import { KeymapPicker } from './KeymapPicker';
+import { DrawerStyles } from './Drawer.styles';
+import { ThemePicker } from './ThemePicker';
 
 export function Drawer() {
+  const styles = DrawerStyles();
   const [open, setOpen] = useState(false);
 
   function handleClick() {
@@ -11,14 +14,13 @@ export function Drawer() {
 
   return (
     <>
-      <div className={`drawer ${open ? 'open' : ''}`}>
-        <ul>
-          <li>A</li>
-          <li>B</li>
-          <li>C</li>
-        </ul>
+      <div className={`${styles.drawer} ${open ? styles.open : ''}`}>
+        <ThemePicker />
+        <KeymapPicker />
       </div>
-      <button onClick={handleClick}>yeet</button>
+      <button className={styles.button} onClick={handleClick}>
+        <img src="./icons8-settings-50.png"></img>
+      </button>
     </>
   );
 }

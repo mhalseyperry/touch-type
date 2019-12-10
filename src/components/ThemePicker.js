@@ -7,6 +7,7 @@ export const ThemePicker = () => {
 
   return (
     <div>
+      <p>Theme Picker: </p>
       <ToggleButton on={isLightTheme} toggle={setIsLightTheme} />
     </div>
   );
