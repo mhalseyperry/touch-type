@@ -9,4 +9,12 @@ export const AppStyles = createUseStyles(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
   },
+
+  correct: {
+    background: 'green',
+  },
+
+  incorrect: {
+    background: 'red',
+  },
 }));

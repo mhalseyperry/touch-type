@@ -6,8 +6,7 @@ import { ThemePicker } from './components/ThemePicker';
 import { AppStyles } from './hooks/App.styles';
 
 function App() {
-  const classes = AppStyles();
-  console.log(classes);
+  const styles = AppStyles();
   const [className, setClassName] = useState('');
 
   useEffect(() => {
@@ -21,7 +20,7 @@ function App() {
   }, [className]);
 
   return (
-    <div className={classes.wrapper}>
+    <div className={`${styles.wrapper} ${className ? styles[className] : ''}`}>
       <Drawer />
       <KeymapPicker />
       <ThemePicker />
