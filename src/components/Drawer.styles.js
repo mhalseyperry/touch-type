@@ -4,7 +4,7 @@ export const DrawerStyles = createUseStyles(theme => ({
   drawer: {
     display: 'flex',
     flexDirection: 'column',
-    background: theme.ui,
+    background: 'white',
     position: 'absolute',
     top: '0',
     bottom: '0',
@@ -12,6 +12,8 @@ export const DrawerStyles = createUseStyles(theme => ({
     width: '15rem',
     transition: 'left 0.2s ease-in',
     color: theme.text,
+    padding: '1rem',
+    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
   },
 
   button: {
