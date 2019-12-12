@@ -21,6 +21,7 @@ export const AppStyles = createUseStyles(theme => ({
   main: {
     display: 'flex',
     justifyContent: 'center',
+    alignItems: 'center',
     width: '100%',
     height: '100%',
   },

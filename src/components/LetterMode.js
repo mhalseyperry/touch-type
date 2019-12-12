@@ -14,28 +14,40 @@ export const LetterMode = props => {
   const { primaryKeymap, secondaryKeymap } = useKeyboardLayouts();
   const classes = LetterModeStyles();
 
-  const [key, setKey] = useState(getRandKey(primaryKeymap));
+  const [currentKey, setCurrentKey] = useState(getRandKey(primaryKeymap));
+  const [futureKey, setFutureKey] = useState(getRandKey(primaryKeymap));
+  const [pastKey, setPastKey] = useState(getRandKey(primaryKeymap));
   const [input, setInput] = useState('');
 
   useEventListener(
     'keydown',
     e => {
-      if (e.keyCode === key) {
+      if (e.keyCode === currentKey) {
         props.onSuccesfulGuess();
-        setKey(getRandKey(primaryKeymap));
+        setPastKey(currentKey);
+        setCurrentKey(futureKey);
+        setFutureKey(getRandKey(primaryKeymap));
       } else {
         props.onIncorrectGuess();
       }
       setInput(e.keyCode);
     },
-    [key, primaryKeymap],
+    [currentKey, primaryKeymap, pastKey, futureKey],
   );
 
   return (
-    <div className={classes.box}>
-      <p className={classes.text}>{primaryKeymap[key]}</p>
-      <p className={classes.textSmall}>({secondaryKeymap[key]})</p>
-      <p className={classes.textSmall}>{primaryKeymap[input]}</p>
-    </div>
+    <>
+      <div className={classes.box}>
+        <div className={classes.outer}>
+          <p className={classes.textSmall}>{primaryKeymap[pastKey]}</p>
+        </div>
+        <div className={classes.main}>
+          <p className={classes.text}>{primaryKeymap[currentKey]}</p>
+        </div>
+        <div className={classes.outer}>
+          <p className={classes.textSmall}>{primaryKeymap[futureKey]}</p>
+        </div>
+      </div>
+    </>
   );
 };
