@@ -8,7 +8,7 @@ export const useKeyboardLayouts = () => useContext(KeyboardLayoutContext);
 export const KeyboardLayoutProvider = ({ children }) => {
   const keymaps = useKeymaps();
 
-  const [primaryKeymap, setPrimaryKeymap] = useState('rus');
+  const [primaryKeymap, setPrimaryKeymap] = useState('eng');
   const [secondaryKeymap, setSecondaryKeymap] = useState('eng');
 
   const value = {
