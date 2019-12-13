@@ -6,8 +6,10 @@ import { LetterModeStyles } from './LetterMode.styles';
 function getRandKey(keyMap) {
   const keys = Object.keys(keyMap);
   const key = keys[Math.floor(Math.random() * keys.length)];
-
-  return parseInt(key, 10);
+  let punctuationless = key.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
+  let finalKey = punctuationless.replace(/\s{2,}/g, ' ');
+  console.log(finalKey);
+  return parseInt(finalKey, 10);
 }
 
 export const LetterMode = props => {

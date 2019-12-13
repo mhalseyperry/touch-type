@@ -10,14 +10,14 @@ export const ThemeContextProvider = ({ children }) => {
 
   const light = {
     text: '#555',
-    ui: '#ddd',
+    ui: '#fff',
     bg: '#eee',
   };
 
   const dark = {
     text: '#ddd',
-    ui: '#333',
-    bg: '#555',
+    ui: '#555',
+    bg: '#333',
   };
 
   const value = {
