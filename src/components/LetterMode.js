@@ -49,7 +49,10 @@ export const LetterMode = props => {
 
   return (
     <>
-      <div className={`${styles.box} ${className ? styles[className] : ''}`}>
+      <div className={styles.box}>
+        <div
+          className={`${styles.status} ${className ? styles[className] : ''}`}
+        />
         <div className={styles.outer}>
           <p className={styles.textSmall}>{primaryKeymap[pastKey]}</p>
         </div>
