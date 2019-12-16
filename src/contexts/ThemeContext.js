@@ -12,12 +12,14 @@ export const ThemeContextProvider = ({ children }) => {
     text: '#555',
     ui: '#fff',
     bg: '#eee',
+    shadow: 'rgba(0, 0, 0, 0.30)',
   };
 
   const dark = {
     text: '#ddd',
     ui: '#555',
     bg: '#333',
+    shadow: 'rgba(0, 0, 0, 0.30)',
   };
 
   const value = {

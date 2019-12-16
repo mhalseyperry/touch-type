@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useEventListener } from '../hooks/useEventListener';
 import { useKeyboardLayouts } from '../contexts/KeyboardLayoutContext';
 import { LetterModeStyles } from './LetterMode.styles';
@@ -13,40 +13,51 @@ function getRandKey(keyMap) {
 
 export const LetterMode = props => {
   const { primaryKeymap, secondaryKeymap } = useKeyboardLayouts();
-  const classes = LetterModeStyles();
+  const styles = LetterModeStyles();
 
   const [currentKey, setCurrentKey] = useState(getRandKey(primaryKeymap));
   const [futureKey, setFutureKey] = useState(getRandKey(primaryKeymap));
   const [pastKey, setPastKey] = useState(getRandKey(primaryKeymap));
   const [input, setInput] = useState('');
+  const [className, setClassName] = useState('');
 
   useEventListener(
     'keydown',
     e => {
       if (e.keyCode === currentKey) {
-        props.onSuccesfulGuess();
+        setClassName('correct');
         setPastKey(currentKey);
         setCurrentKey(futureKey);
         setFutureKey(getRandKey(primaryKeymap));
       } else {
-        props.onIncorrectGuess();
+        setClassName('incorrect');
       }
       setInput(e.keyCode);
     },
     [currentKey, primaryKeymap, pastKey, futureKey],
   );
 
+  useEffect(() => {
+    let timeout = setTimeout(() => {
+      if (className) {
+        setClassName('');
+      }
+    }, 500);
+
+    return () => clearTimeout(timeout);
+  }, [className]);
+
   return (
     <>
-      <div className={classes.box}>
-        <div className={classes.outer}>
-          <p className={classes.textSmall}>{primaryKeymap[pastKey]}</p>
+      <div className={`${styles.box} ${className ? styles[className] : ''}`}>
+        <div className={styles.outer}>
+          <p className={styles.textSmall}>{primaryKeymap[pastKey]}</p>
         </div>
-        <div className={classes.main}>
-          <p className={classes.text}>{primaryKeymap[currentKey]}</p>
+        <div className={styles.main}>
+          <p className={styles.text}>{primaryKeymap[currentKey]}</p>
         </div>
-        <div className={classes.outer}>
-          <p className={classes.textSmall}>{primaryKeymap[futureKey]}</p>
+        <div className={styles.outer}>
+          <p className={styles.textSmall}>{primaryKeymap[futureKey]}</p>
         </div>
       </div>
     </>
