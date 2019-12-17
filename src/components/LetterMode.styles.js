@@ -1,5 +1,4 @@
 import { createUseStyles } from 'react-jss';
-import { blue } from 'ansi-colors';
 
 export const LetterModeStyles = createUseStyles(theme => ({
   box: {

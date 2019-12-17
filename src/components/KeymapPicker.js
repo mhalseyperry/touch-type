@@ -17,7 +17,9 @@ export const KeymapPicker = () => {
         onChange={e => setPrimaryKeymap(e.target.value)}
       >
         {Object.keys(keymaps).map(keymap => (
-          <option value={keymap}>{keymap}</option>
+          <option key={keymap} value={keymap}>
+            {keymap}
+          </option>
         ))}
       </select>
       <select
@@ -25,7 +27,9 @@ export const KeymapPicker = () => {
         onChange={e => setSecondaryKeymap(e.target.value)}
       >
         {Object.keys(keymaps).map(keymap => (
-          <option value={keymap}>{keymap}</option>
+          <option key={keymap} value={keymap}>
+            {keymap}
+          </option>
         ))}
       </select>
     </>

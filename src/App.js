@@ -3,6 +3,7 @@ import { Drawer } from './components/Drawer';
 import { LetterMode } from './components/LetterMode';
 import { ThemePicker } from './components/ThemePicker';
 import { AppStyles } from './hooks/App.styles';
+import { KeyboardLayout } from './components/KeyboardLayout';
 
 function App() {
   const styles = AppStyles();
@@ -28,6 +29,7 @@ function App() {
           onSuccesfulGuess={() => setClassName('correct')}
           onIncorrectGuess={() => setClassName('incorrect')}
         />
+        <KeyboardLayout />
       </main>
     </div>
   );
