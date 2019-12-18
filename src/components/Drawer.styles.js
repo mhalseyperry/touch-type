@@ -1,6 +1,6 @@
 import { createUseStyles } from 'react-jss';
 
-export const DrawerStyles = createUseStyles(theme => ({
+export const useStyles = createUseStyles(theme => ({
   drawer: {
     display: 'flex',
     flexDirection: 'column',

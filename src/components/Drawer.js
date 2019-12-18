@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './Drawer.css';
 import { KeymapPicker } from './KeymapPicker';
-import { DrawerStyles } from './Drawer.styles';
+import { useStyles } from './Drawer.styles';
 import { ThemePicker } from './ThemePicker';
 
 export function Drawer() {
-  const styles = DrawerStyles();
+  const styles = useStyles();
   const [open, setOpen] = useState(false);
 
   function handleClick() {

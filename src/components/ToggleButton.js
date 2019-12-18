@@ -1,8 +1,8 @@
 import React from 'react';
-import { ToggleButtonStyles } from './ToggleButton.styles';
+import { useStyles } from './ToggleButton.styles';
 
 export const ToggleButton = props => {
-  const classes = ToggleButtonStyles();
+  const classes = useStyles();
 
   function toggle() {
     props.toggle(!props.on);

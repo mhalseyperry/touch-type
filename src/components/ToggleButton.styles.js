@@ -1,6 +1,6 @@
 import { createUseStyles } from 'react-jss';
 
-export const ToggleButtonStyles = createUseStyles(theme => ({
+export const useStyles = createUseStyles(theme => ({
   switch: {
     position: 'relative',
     outline: 'none',

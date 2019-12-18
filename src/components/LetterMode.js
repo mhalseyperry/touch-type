@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useEventListener } from '../hooks/useEventListener';
 import { useKeyboardLayouts } from '../contexts/KeyboardLayoutContext';
-import { LetterModeStyles } from './LetterMode.styles';
+import { useStyles } from './LetterMode.styles';
 
 function getRandKey(keyMap) {
   const keys = Object.keys(keyMap);
@@ -13,7 +13,7 @@ function getRandKey(keyMap) {
 
 export const LetterMode = props => {
   const { primaryKeymap, secondaryKeymap } = useKeyboardLayouts();
-  const styles = LetterModeStyles();
+  const styles = useStyles();
 
   const [currentKey, setCurrentKey] = useState(getRandKey(primaryKeymap));
   const [futureKey, setFutureKey] = useState(getRandKey(primaryKeymap));

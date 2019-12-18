@@ -11,6 +11,14 @@ export const useStyles = createUseStyles(theme => ({
     margin: '.05rem',
   },
 
+  off: {
+    background: 'green',
+  },
+
+  on: {
+    background: 'red',
+  },
+
   row: {
     display: 'flex',
     flexDirection: 'row',

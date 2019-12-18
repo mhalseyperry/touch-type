@@ -1,6 +1,6 @@
 import { createUseStyles } from 'react-jss';
 
-export const LetterModeStyles = createUseStyles(theme => ({
+export const useStyles = createUseStyles(theme => ({
   box: {
     position: 'relative',
     width: '50rem',
