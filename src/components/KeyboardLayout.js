@@ -4,7 +4,7 @@ import { useKeyboardLayouts } from '../contexts/KeyboardLayoutContext';
 import { useStyles } from './KeyboardLayout.styles';
 import { useEventListener } from '../hooks/useEventListener';
 
-export const KeyboardLayout = () => {
+export const KeyboardLayout = ({ currentKey }) => {
   const keyboardLayout = useKeyboardLayout();
   const { primaryKeymap } = useKeyboardLayouts();
   const styles = useStyles();
@@ -18,16 +18,15 @@ export const KeyboardLayout = () => {
     [],
   );
 
-  useEffect(() => {
-    let timeout = setTimeout(() => {
-      if (keyDown) {
-        setKeyDown('');
-      }
-    }, 500);
+  useEventListener(
+    'keyup',
+    () => {
+      setKeyDown('');
+    },
+    [],
+  );
 
-    return () => clearTimeout(timeout);
-  }, [keyDown]);
-
+  console.log({ keyDown, currentKey });
   return (
     <div>
       {keyboardLayout.map(row => (
@@ -35,7 +34,11 @@ export const KeyboardLayout = () => {
           {row.map(keyCode => (
             <div
               className={`${styles.letter} ${
-                keyCode === keyDown ? styles.on : ''
+                keyCode === keyDown
+                  ? keyCode === currentKey
+                    ? styles.correct
+                    : styles.incorrect
+                  : ''
               }`}
             >
               {primaryKeymap[keyCode]}

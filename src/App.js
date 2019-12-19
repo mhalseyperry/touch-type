@@ -29,7 +29,6 @@ function App() {
           onSuccesfulGuess={() => setClassName('correct')}
           onIncorrectGuess={() => setClassName('incorrect')}
         />
-        <KeyboardLayout />
       </main>
     </div>
   );

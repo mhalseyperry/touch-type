@@ -39,18 +39,20 @@ export const useStyles = createUseStyles(theme => ({
     width: '100%',
     height: '100%',
     position: 'absolute',
-    transition: 'opacity 200ms ease',
+    transition: 'opacity 0ms ease',
   },
 
   correct: {
     opacity: 1,
-    background:
-      ' radial-gradient(ellipse at center, rgba(10,199,0,1) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%)',
+    color: 'green',
+    // background:
+    //   ' radial-gradient(ellipse at center, rgba(10,199,0,1) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%)',
   },
 
   incorrect: {
+    color: 'red',
     opacity: 1,
-    background:
-      ' radial-gradient(ellipse at center, rgba(179,11,11,1) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%)',
+    // background:
+    //   ' radial-gradient(ellipse at center, rgba(179,11,11,1) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%)',
   },
 }));
