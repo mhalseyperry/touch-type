@@ -47,8 +47,8 @@ export const LetterMode = props => {
 
   return (
     <>
+      <div className={styles.scoreBox}>{`Score: ${score}`}</div>
       <div className={styles.box}>
-        <div className={styles.scoreBox}>{`Score: ${score}`}</div>
         <div className={styles.carousel}>
           <div className={styles.outer}>
             <p className={styles.textSmall}>{primaryKeymap[pastKey]}</p>
