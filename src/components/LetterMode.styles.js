@@ -2,9 +2,12 @@ import { createUseStyles } from 'react-jss';
 
 export const useStyles = createUseStyles(theme => ({
   box: {
+    position: 'relative',
     display: 'flex',
-    flexDirection: 'column',
-    marginTop: '3rem',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    width: '50rem',
+    height: '50rem',
   },
 
   carousel: {

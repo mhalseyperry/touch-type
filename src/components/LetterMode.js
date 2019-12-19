@@ -64,8 +64,8 @@ export const LetterMode = props => {
             <p className={styles.textSmall}>{primaryKeymap[futureKey]}</p>
           </div>
         </div>
-        <KeyboardLayout currentKey={currentKey} />
       </div>
+      <KeyboardLayout currentKey={currentKey} />
     </>
   );
 };
