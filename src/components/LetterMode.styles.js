@@ -2,15 +2,17 @@ import { createUseStyles } from 'react-jss';
 
 export const useStyles = createUseStyles(theme => ({
   box: {
-    position: 'relative',
-    width: '50rem',
-    height: '50rem',
     display: 'flex',
-    justifyContent: 'center',
+    flexDirection: 'column',
+    marginTop: '3rem',
+  },
+
+  carousel: {
+    display: 'flex',
     flexDirection: 'row',
+    justifyContent: 'center',
     textAlign: 'center',
     alignItems: 'center',
-    transition: 'background 200ms ease-in-out',
   },
 
   text: {
@@ -54,5 +56,9 @@ export const useStyles = createUseStyles(theme => ({
     opacity: 1,
     // background:
     //   ' radial-gradient(ellipse at center, rgba(179,11,11,1) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%)',
+  },
+
+  scoreBox: {
+    color: theme.text,
   },
 }));

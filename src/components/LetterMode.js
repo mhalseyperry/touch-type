@@ -20,6 +20,7 @@ export const LetterMode = props => {
   const [futureKey, setFutureKey] = useState(getRandKey(primaryKeymap));
   const [pastKey, setPastKey] = useState(getRandKey(primaryKeymap));
   const [className, setClassName] = useState('');
+  const [score, setScore] = useState(0);
 
   useEventListener(
     'keyup',
@@ -36,8 +37,10 @@ export const LetterMode = props => {
 
   useEventListener('keydown', e => {
     if (e.keyCode === currentKey) {
+      setScore(score + 10);
       setClassName('correct');
     } else {
+      setScore(score - 10);
       setClassName('incorrect');
     }
   });
@@ -45,22 +48,24 @@ export const LetterMode = props => {
   return (
     <>
       <div className={styles.box}>
-        <div
-          className={`${styles.status} ${className ? styles[className] : ''}`}
-        />
-        <div className={styles.outer}>
-          <p className={styles.textSmall}>{primaryKeymap[pastKey]}</p>
+        <div className={styles.scoreBox}>{`Score: ${score}`}</div>
+        <div className={styles.carousel}>
+          <div className={styles.outer}>
+            <p className={styles.textSmall}>{primaryKeymap[pastKey]}</p>
+          </div>
+          <div className={styles.main}>
+            <p
+              className={`${styles.text} ${className ? styles[className] : ''}`}
+            >
+              {primaryKeymap[currentKey]}
+            </p>
+          </div>
+          <div className={styles.outer}>
+            <p className={styles.textSmall}>{primaryKeymap[futureKey]}</p>
+          </div>
         </div>
-        <div className={styles.main}>
-          <p className={`${styles.text} ${className ? styles[className] : ''}`}>
-            {primaryKeymap[currentKey]}
-          </p>
-        </div>
-        <div className={styles.outer}>
-          <p className={styles.textSmall}>{primaryKeymap[futureKey]}</p>
-        </div>
+        <KeyboardLayout currentKey={currentKey} />
       </div>
-      <KeyboardLayout currentKey={currentKey} />
     </>
   );
 };

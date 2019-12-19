@@ -27,7 +27,7 @@ export const KeyboardLayout = ({ currentKey }) => {
   );
 
   return (
-    <div>
+    <div className={styles.keyboard}>
       {keyboardLayout.map(row => (
         <div className={styles.row} key={row}>
           {row.map(keyCode => (
