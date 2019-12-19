@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useKeyboardLayout } from '../hooks/useKeyboardLayout';
 import { useKeyboardLayouts } from '../contexts/KeyboardLayoutContext';
 import { useStyles } from './KeyboardLayout.styles';
@@ -26,11 +26,10 @@ export const KeyboardLayout = ({ currentKey }) => {
     [],
   );
 
-  console.log({ keyDown, currentKey });
   return (
     <div>
       {keyboardLayout.map(row => (
-        <div className={styles.row}>
+        <div className={styles.row} key={row}>
           {row.map(keyCode => (
             <div
               className={`${styles.letter} ${
@@ -40,6 +39,7 @@ export const KeyboardLayout = ({ currentKey }) => {
                     : styles.incorrect
                   : ''
               }`}
+              key={keyCode}
             >
               {primaryKeymap[keyCode]}
             </div>

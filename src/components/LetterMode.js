@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useEventListener } from '../hooks/useEventListener';
 import { useKeyboardLayouts } from '../contexts/KeyboardLayoutContext';
 import { useStyles } from './LetterMode.styles';
@@ -7,13 +7,13 @@ import { KeyboardLayout } from './KeyboardLayout';
 function getRandKey(keyMap) {
   const keys = Object.keys(keyMap);
   const key = keys[Math.floor(Math.random() * keys.length)];
-  const regEx = /[~`!@#$%^&*(){}\[\];:"'<,.>?\/\\|_+=-]/g;
+  const regEx = /[~`!@#$%^&*(){}[\];:"'<,.>?/\\|_+=-]/g;
   const isPunctuation = regEx.test(keyMap[key]);
   return parseInt(isPunctuation ? getRandKey(keyMap) : key, 10);
 }
 
 export const LetterMode = props => {
-  const { primaryKeymap, secondaryKeymap } = useKeyboardLayouts();
+  const { primaryKeymap } = useKeyboardLayouts();
   const styles = useStyles();
 
   const [currentKey, setCurrentKey] = useState(getRandKey(primaryKeymap));
@@ -40,7 +40,6 @@ export const LetterMode = props => {
     } else {
       setClassName('incorrect');
     }
-    console.log(e.keyCode);
   });
 
   return (

@@ -19,7 +19,7 @@ export function Drawer() {
         <KeymapPicker />
       </div>
       <button className={styles.button} onClick={handleClick}>
-        <img src="./icons8-settings-50.png"></img>
+        <img src="./icons8-settings-50.png" alt=""></img>
       </button>
     </>
   );
