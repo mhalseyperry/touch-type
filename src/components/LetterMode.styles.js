@@ -15,12 +15,12 @@ export const useStyles = createUseStyles(theme => ({
 
   text: {
     color: theme.text,
-    fontSize: '2000%',
+    fontSize: '15rem',
   },
 
   textSmall: {
     color: theme.text,
-    fontSize: '500%',
+    fontSize: '5rem',
   },
 
   outer: {
