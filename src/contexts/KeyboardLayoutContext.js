@@ -10,6 +10,7 @@ export const KeyboardLayoutProvider = ({ children }) => {
 
   const [primaryKeymap, setPrimaryKeymap] = useState('Russian');
   const [secondaryKeymap, setSecondaryKeymap] = useState('English (qwerty)');
+  const [punctuation, setPunctuation] = useState(false);
 
   const value = {
     keymaps,
@@ -20,6 +21,9 @@ export const KeyboardLayoutProvider = ({ children }) => {
     secondaryKeymapKey: secondaryKeymap,
     secondaryKeymap: keymaps[secondaryKeymap],
 
+    punctuation: punctuation,
+
+    setPunctuation,
     setPrimaryKeymap,
     setSecondaryKeymap,
   };

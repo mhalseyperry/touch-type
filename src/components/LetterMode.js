@@ -13,7 +13,7 @@ function getRandKey(keyMap) {
 }
 
 export const LetterMode = props => {
-  const { primaryKeymap } = useKeyboardLayouts();
+  const { primaryKeymap, punctuation, setPunctuation } = useKeyboardLayouts();
   const styles = useStyles();
 
   const [currentKey, setCurrentKey] = useState(getRandKey(primaryKeymap));
