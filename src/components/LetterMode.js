@@ -12,7 +12,7 @@ function getRandKey(keyMap) {
   return parseInt(isPunctuation ? getRandKey(keyMap) : key, 10);
 }
 
-export const LetterMode = props => {
+export const LetterMode = (props) => {
   const { primaryKeymap, punctuation, setPunctuation } = useKeyboardLayouts();
   const styles = useStyles();
 
@@ -24,23 +24,24 @@ export const LetterMode = props => {
 
   useEventListener(
     'keyup',
-    e => {
+    (e) => {
       if (e.keyCode === currentKey) {
+        setScore((prevScore) => prevScore + 10);
         setPastKey(currentKey);
         setCurrentKey(futureKey);
         setFutureKey(getRandKey(primaryKeymap));
+      } else {
+        setScore((PrevScore) => PrevScore - 10);
       }
       setClassName('');
     },
     [currentKey, primaryKeymap, pastKey, futureKey],
   );
 
-  useEventListener('keydown', e => {
+  useEventListener('keydown', (e) => {
     if (e.keyCode === currentKey) {
-      setScore(score + 10);
       setClassName('correct');
     } else {
-      setScore(score - 10);
       setClassName('incorrect');
     }
   });
